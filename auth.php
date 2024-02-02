@@ -124,12 +124,12 @@ class auth_plugin_autham extends AuthPlugin
         
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $realName = $row["realname"]; 
+            $realName = $row["realname"];
             $email = $row["email"];
             $conn->close();
             
             if($realName == $admin) {
-                $group = ['admin']; 
+                $group = ['admin'];
             } else {
                 $group = ['user'];
             }
