@@ -5,7 +5,7 @@ use dokuwiki\Extension\AuthPlugin;
 /**
  * DokuWiki Plugin autham (Auth Component)
  *
- * @license GPL 2 http://www.gnu.org/licenses/gpl-2.0.html
+ * @license GPL v3 http://www.gnu.org/licenses/gpl-3.0.html
  * @author Mr_Fang <klxf@vip.qq.com>
  */
 class auth_plugin_autham extends AuthPlugin
@@ -127,8 +127,10 @@ class auth_plugin_autham extends AuthPlugin
             $realName = $row["realname"];
             $email = $row["email"];
             $conn->close();
-            
-            if($realName == $admin) {
+			
+            $admin = explode(",", $admin);
+			
+            if(in_array($realName, $admin)) {
                 $group = ['admin'];
             } else {
                 $group = ['user'];
