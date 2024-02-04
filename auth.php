@@ -65,13 +65,11 @@ class auth_plugin_autham extends AuthPlugin
     /** @inheritDoc */
     public function checkPass($user, $pass)
     {
-        global $conf;
-        
-        $sql_host = $conf['plugin']['autham']['sql_host'];
-        $sql_user = $conf['plugin']['autham']['sql_user'];
-        $sql_pass = $conf['plugin']['autham']['sql_pass'];
-        $database = $conf['plugin']['autham']['database'];
-        $table = $conf['plugin']['autham']['table'];
+        $sql_host = $this->getConf('sql_host');
+        $sql_user = $this->getConf('sql_user');
+        $sql_pass = $this->getConf('sql_pass');
+        $database = $this->getConf('database');
+        $table = $this->getConf('table');
         
         $conn = new mysqli($sql_host, $sql_user, $sql_pass, $database);
         if ($conn->connect_error) {
@@ -105,14 +103,12 @@ class auth_plugin_autham extends AuthPlugin
     /** @inheritDoc */
     public function getUserData($user, $requireGroups = true)
     {
-        global $conf;
-        
-        $sql_host = $conf['plugin']['autham']['sql_host'];
-        $sql_user = $conf['plugin']['autham']['sql_user'];
-        $sql_pass = $conf['plugin']['autham']['sql_pass'];
-        $database = $conf['plugin']['autham']['database'];
-        $table = $conf['plugin']['autham']['table'];
-        $admin = $conf['plugin']['autham']['admin'];
+        $sql_host = $this->getConf('sql_host');
+        $sql_user = $this->getConf('sql_user');
+        $sql_pass = $this->getConf('sql_pass');
+        $database = $this->getConf('database');
+        $table = $this->getConf('table');
+        $admin = $this->getConf('admin');
         
         $conn = new mysqli($sql_host, $sql_user, $sql_pass, $database);
         if ($conn->connect_error) {
