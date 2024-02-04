@@ -1,7 +1,7 @@
 base   autham
 author Mr_Fang
 email  klxf@vip.qq.com
-date   2024-02-03
+date   2024-02-04
 name   AuthAM Plugin
 desc   Login to DokuWiki with Minecraft AuthMe account
 url    https://www.dokuwiki.org/plugin:autham
